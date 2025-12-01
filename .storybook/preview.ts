@@ -1,20 +1,29 @@
 import type { Decorator, Preview } from '@storybook/vue3-vite';
 import { h } from 'vue';
 
-const ROOT_PADDING = '6rem';
+const ROOT_PADDING = '2.5rem';
 
 const withRootLayout: Decorator = (story, context) => {
   const StoryComponent = story();
   return {
     render() {
-      const backgroundColor = context.globals?.backgrounds?.value ?? '#ffffff';
+      // Get background color from globals, default to white for light mode
+      // When dark mode is selected, always use black background
+      const backgroundName = context.globals?.backgrounds?.name;
+      const backgroundValue = context.globals?.backgrounds?.value;
+      const isDarkMode = backgroundName === 'dark' || backgroundValue === '#000000';
+      const backgroundColor = isDarkMode ? '#000000' : (backgroundValue ?? '#ffffff');
+      
       return h(
         'div',
         {
           style: {
             display: 'flex',
             justifyContent: 'center',
+            alignItems: 'flex-start',
             width: '100%',
+            minHeight: 'auto',
+            height: 'auto',
             padding: `${ROOT_PADDING} 0`,
             boxSizing: 'border-box',
             backgroundColor,

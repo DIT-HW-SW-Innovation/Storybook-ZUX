@@ -57,7 +57,7 @@
 import { ref } from 'vue';
 
 import MyHeader from './Header.vue';
-import './page.css';
+import '../../stories/page.css';
 
 const user = ref<{ name: string } | null>(null);
 

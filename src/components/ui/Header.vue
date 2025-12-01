@@ -41,7 +41,7 @@
 
 <script lang="ts" setup>
 import MyButton from './Button.vue';
-import './header.css';
+import '../../stories/header.css';
 
 defineProps<{ user: { name: string } | null }>();
 

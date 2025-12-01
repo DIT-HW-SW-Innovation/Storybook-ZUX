@@ -20,13 +20,13 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { colors } from '../tokens/colors';
-import { dimensions } from '../tokens/dimensions';
-import { motion } from '../tokens/motion';
-import { radii } from '../tokens/radii';
-import { spacing } from '../tokens/spacing';
-import { states } from '../tokens/states';
-import { typography } from '../tokens/typography';
+import { colors } from '../../tokens/colors';
+import { dimensions } from '../../tokens/dimensions';
+import { motion } from '../../tokens/motion';
+import { radii } from '../../tokens/radii';
+import { spacing } from '../../tokens/spacing';
+import { states } from '../../tokens/states';
+import { typography } from '../../tokens/typography';
 
 export interface ButtonProps {
   label?: string;
@@ -55,14 +55,32 @@ const themeColors = computed(() => colors[props.theme]);
 const buttonStyle = computed(() => {
   const themeColor = themeColors.value;
   const letterSpacing = typography.rowLabelXtraLarge.letterSpacing ?? 0;
+  
+  // For dark theme variant 1, use black overlays as per Figma specs
+  const isDarkTheme = props.theme === 'dark';
+  const isVariant1 = props.variant === 1;
+  const isFocusedOrPressed = props.status === 'focused' || props.status === 'pressed';
+  
+  // Dark theme variant 1 uses black overlays instead of white
+  const hoveredOverlay = isDarkTheme && isVariant1 
+    ? 'rgba(0, 0, 0, 0.1)' 
+    : themeColor.fills.hovered;
+  const focusedPressedOverlay = isDarkTheme && isVariant1 
+    ? 'rgba(0, 0, 0, 0.2)' 
+    : themeColor.fills.focusedPressed;
+  
+  // Focused/pressed states use different padding (20px/10px instead of 24px/12px)
+  const paddingX = isFocusedOrPressed ? '1.25rem' : spacing.large; // 20px vs 24px
+  const paddingY = isFocusedOrPressed ? '0.625rem' : spacing.smallMedium; // 10px vs 12px
+  
   return {
     '--zux-btn-bg': themeColor.primary.blue,
     '--zux-btn-text': themeColor.fills.inverseOnSurface,
-    '--zux-btn-hovered': themeColor.fills.hovered,
-    '--zux-btn-focused-pressed': themeColor.fills.focusedPressed,
+    '--zux-btn-hovered': hoveredOverlay,
+    '--zux-btn-focused-pressed': focusedPressedOverlay,
     '--zux-btn-radius': radii.full,
-    '--zux-btn-padding-x': spacing.large,
-    '--zux-btn-padding-y': spacing.smallMedium,
+    '--zux-btn-padding-x': paddingX,
+    '--zux-btn-padding-y': paddingY,
     '--zux-btn-min-height': dimensions.button.minHeight,
     '--zux-btn-min-width': dimensions.button.minWidth,
     '--zux-btn-transition-duration': motion.duration.fast,
@@ -142,7 +160,7 @@ const buttonStyle = computed(() => {
 }
 
 .zux-button--disabled {
-  opacity: var(--zux-btn-disabled-opacity);
+  opacity: var(--zux-btn-disabled-opacity); /* 40% opacity as per Figma specs */
   pointer-events: var(--zux-btn-disabled-pointer-events);
 }
 
