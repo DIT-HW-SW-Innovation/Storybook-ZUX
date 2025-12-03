@@ -1,15 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import MyButton from '../components/ui/Button.vue';
+import StoryWrapper from './StoryWrapper.vue';
 
 const meta = {
   title: 'Components/Button',
   component: MyButton,
   render: (args: any) => ({
-    components: { MyButton },
+    components: { MyButton, StoryWrapper },
     setup() {
       return { args };
     },
-    template: '<my-button v-bind="args" />',
+    template: `
+      <StoryWrapper :dark-mode="args.theme === 'dark'">
+        <my-button v-bind="args" />
+      </StoryWrapper>
+    `,
   }),
   tags: ['autodocs'],
   argTypes: {
@@ -95,7 +100,7 @@ export const Variant1EnabledDark: Story = {
     label: 'Button',
   },
   parameters: {
-    backgrounds: { default: 'dark' },
+    darkMode: true,
   },
 };
 
@@ -107,7 +112,7 @@ export const Variant1HoveredDark: Story = {
     label: 'Button',
   },
   parameters: {
-    backgrounds: { default: 'dark' },
+    darkMode: true,
   },
 };
 
@@ -119,7 +124,7 @@ export const Variant1FocusedDark: Story = {
     label: 'Button',
   },
   parameters: {
-    backgrounds: { default: 'dark' },
+    darkMode: true,
   },
 };
 
@@ -131,7 +136,7 @@ export const Variant1pressedDark: Story = {
     label: 'Button',
   },
   parameters: {
-    backgrounds: { default: 'dark' },
+    darkMode: true,
   },
 };
 
@@ -143,7 +148,7 @@ export const Variant1DisabledDark: Story = {
     label: 'Button',
   },
   parameters: {
-    backgrounds: { default: 'dark' },
+    darkMode: true,
   },
 };
 
