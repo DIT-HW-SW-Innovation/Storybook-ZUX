@@ -1,15 +1,7 @@
 <template>
   <div
     class="story-wrapper"
-    :style="{
-      width: '100vw',
-      minHeight: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '40px',
-      background: darkMode ? '#0f1116' : '#f5f6fb'
-    }"
+    :class="{ 'story-wrapper--dark': darkMode }"
   >
     <slot />
   </div>
@@ -26,3 +18,18 @@ withDefaults(
 );
 </script>
 
+<style scoped>
+.story-wrapper {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.story-wrapper--dark {
+  background: #0f1116;
+}
+</style>

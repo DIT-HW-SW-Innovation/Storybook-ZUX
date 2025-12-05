@@ -1,0 +1,75 @@
+---
+description: When coding, always apply.  
+alwaysApply: false
+---
+---
+globs:
+  - "src/components/**/*"
+  - "src/stories/**/*"
+  - "src/tokens/**/*"
+  - ".storybook/**/*"
+description: >
+  Enforce Lenovo design-system rules for Vue 3, Storybook, tokens, StoryWrapper, and Figma MCP.
+  When editing or generating UI code, follow design-system-rules.md.
+alwaysApply: true
+---
+
+# Lenovo Design System – Project Rule (High Level)
+
+When working in the matched files, Cursor must:
+
+1. **Follow `DESIGN-SYSTEM-RULES.md`**
+
+   - Treat `DESIGN-SYSTEM-RULES.md` at the repo root as the source of truth
+     for component structure, token usage, StoryWrapper, Storybook patterns,
+     Figma MCP workflow, gradients, icon handling, and Chromatic notes.
+   - Resolve conflicts in favor of `DESIGN-SYSTEM-RULES.md`.
+
+2. **figma mcp fallback behavior**
+
+   - when using figma mcp (either `figma` or `figma-desktop`) and the server does not return
+     the expected styles or variables (for example: missing colors, spacing, typography,
+     or other design tokens), cursor must **not start or continue writing styling code
+     that depends on that missing figma data**.
+   - instead, cursor should:
+     - clearly inform the user that figma mcp did not provide the necessary data.
+     - summarize what was successfully retrieved from figma (for example: which variables,
+       components, or collections were found).
+     - explicitly list what appears to be missing or incomplete (for example: button background
+       colors, spacing scale, typography tokens, gradient details).
+     - ask the user whether to:
+       - adjust the figma selection or file and retry mcp, or
+       - provide the missing design information manually, or
+       - proceed with clearly marked placeholder values (for example `todo_token`), rather than silently guessing.
+   - cursor should never silently invent or guess design tokens, colors, or layout values
+     when figma data is incomplete; it must always surface the gap to the user first.
+
+3. **Use tokens instead of raw values**
+
+   - Do not hard-code colors, spacing, font sizes, radii, shadows, or gradients.
+   - Always import from `src/tokens/*` and, if a new value is needed,
+     inform user and let user to check and make decisions.
+
+4. **Follow the golden examples**
+
+   - For components, use `src/components/ui/Button.vue` as a reference for:
+     - `<script setup lang="ts">`
+     - typed props
+     - token-based styling
+     - light/dark theme handling
+   - For stories, use `src/stories/Button.stories.ts` as a reference for:
+     - CSF3 structure
+     - args/argTypes usage
+     - light/dark handling
+     - StoryWrapper integration (when applicable).
+
+5. **Use StoryWrapper when visual context is needed**
+
+   - When a story requires background, padding, or light/dark context,
+     import and use `StoryWrapper` following the pattern described in
+     `DESIGN-SYSTEM-RULES.md` (render function + `args.darkMode`).
+
+6. **Keep Storybook global config simple**
+
+   - In `.storybook/preview.*`, prefer a simple global decorator that wraps stories
+     and uses `context.globals.backgrounds` instead of DOM hacks or private globals.
