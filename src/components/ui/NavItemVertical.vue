@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[
-      'zux-bottom-nav-item',
-      `zux-bottom-nav-item--${effectiveVariant}`,
-      `zux-bottom-nav-item--theme-${theme}`,
+      'zux-nav-item-vertical',
+      `zux-nav-item-vertical--${effectiveVariant}`,
+      `zux-nav-item-vertical--theme-${theme}`,
     ]"
     :style="itemStyleWithColors"
     @mouseenter="handleMouseEnter"
@@ -11,11 +11,11 @@
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
   >
-    <div class="zux-bottom-nav-item__frame">
-      <div class="zux-bottom-nav-item__icon-container">
-        <div class="zux-bottom-nav-item__icon">
+    <div class="zux-nav-item-vertical__frame">
+      <div class="zux-nav-item-vertical__icon-container">
+        <div class="zux-nav-item-vertical__icon">
           <svg
-            class="zux-bottom-nav-item__icon-shape"
+            class="zux-nav-item-vertical__icon-shape"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -28,7 +28,7 @@
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M2.40039 5.20001L6.40039 2.20001L7.60039 3.80001L3.60039 6.80001L2.40039 5.20001ZM19.0004 13C19.0004 16.866 15.8664 20 12.0004 20C8.1344 20 5.00039 16.866 5.00039 13C5.00039 9.13402 8.1344 6.00001 12.0004 6.00001C15.8664 6.00001 19.0004 9.13402 19.0004 13ZM21.0004 13C21.0004 17.9706 16.971 22 12.0004 22C7.02983 22 3.00039 17.9706 3.00039 13C3.00039 8.02945 7.02983 4.00001 12.0004 4.00001C16.971 4.00001 21.0004 8.02945 21.0004 13ZM11.0004 8.00001V12.9998C11.0004 13.2749 11.1114 13.5242 11.2912 13.705L11.0004 12.9998L11.2937 13.7075L14.2933 16.7071L15.7075 15.2929L13.0004 12.5858V8.00001H11.0004ZM17.6004 2.20001L21.6004 5.20001L20.4004 6.80001L16.4004 3.80001L17.6004 2.20001Z"
-              fill="var(--zux-bottom-nav-item-icon-color)"
+              fill="var(--zux-nav-item-vertical-icon-color)"
             />
             <!-- Alarm_active.svg for selected states -->
             <path
@@ -36,12 +36,12 @@
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M2.40039 5.19995L6.40039 2.19995L7.60039 3.79995L3.60039 6.79995L2.40039 5.19995ZM12.0004 22C16.971 22 21.0004 17.9705 21.0004 13C21.0004 8.02939 16.971 3.99995 12.0004 3.99995C7.02983 3.99995 3.00039 8.02939 3.00039 13C3.00039 17.9705 7.02983 22 12.0004 22ZM11.0004 7.99995V12.9998C11.0004 13.2748 11.1114 13.5241 11.2912 13.7049L11.0004 12.9998L11.2937 13.7075L14.2933 16.7071L15.7075 15.2928L13.0004 12.5857V7.99995H11.0004ZM17.6004 2.19995L21.6004 5.19995L20.4004 6.79995L16.4004 3.79995L17.6004 2.19995Z"
-              fill="var(--zux-bottom-nav-item-icon-color)"
+              fill="var(--zux-nav-item-vertical-icon-color)"
             />
           </svg>
         </div>
       </div>
-      <span class="zux-bottom-nav-item__label">{{ label }}</span>
+      <span class="zux-nav-item-vertical__label">{{ label }}</span>
     </div>
   </div>
 </template>
@@ -53,13 +53,13 @@ import { radii } from '../../tokens/radii';
 import { spacing } from '../../tokens/spacing';
 import { typography } from '../../tokens/typography';
 
-export interface BottomNavItemProps {
+export interface NavItemVerticalProps {
   label?: string;
   variant?: 'unselected' | 'unselected-hovered' | 'unselected-pressed' | 'selected' | 'selected-hovered' | 'selected-pressed';
   theme?: 'light' | 'dark';
 }
 
-const props = withDefaults(defineProps<BottomNavItemProps>(), {
+const props = withDefaults(defineProps<NavItemVerticalProps>(), {
   label: 'Label',
   variant: 'unselected',
   theme: 'light',
@@ -87,7 +87,7 @@ const effectiveVariant = computed(() => {
     return 'unselected';
   }
   
-  // For 'selected' variant, apply interactive states (will be implemented later)
+  // For 'selected' variant, apply interactive states
   if (props.variant === 'selected') {
     if (isPressed.value) {
       return 'selected-pressed';
@@ -126,23 +126,18 @@ const handleMouseUp = () => {
 const themeColors = computed(() => colors[props.theme]);
 const itemStyle = computed(() => {
   return {
-    '--zux-bottom-nav-item-width': '120px',
-    '--zux-bottom-nav-item-height': '64px',
-    '--zux-bottom-nav-item-padding-x': spacing.small, // 8px
-    '--zux-bottom-nav-item-icon-size': '32px',
-    '--zux-bottom-nav-item-icon-radius': radii.full,
-    '--zux-bottom-nav-item-icon-inner-size': '24px',
-    '--zux-bottom-nav-item-icon-shape-width': '19.2px',
-    '--zux-bottom-nav-item-icon-shape-height': '19.8px',
-    '--zux-bottom-nav-item-icon-shape-x': '2.4px',
-    '--zux-bottom-nav-item-icon-shape-y': '2.2px',
-    '--zux-bottom-nav-item-gap': '5px',
-    '--zux-bottom-nav-item-frame-padding-left': '4px',
-    '--zux-bottom-nav-item-frame-padding-right': '12px',
-    '--zux-bottom-nav-item-font-family': typography.rowLabelSmall.family,
-    '--zux-bottom-nav-item-font-size': `${typography.rowLabelSmall.size / 16}rem`,
-    '--zux-bottom-nav-item-font-weight': typography.rowLabelSmall.weight,
-    '--zux-bottom-nav-item-line-height': `${typography.rowLabelSmall.lineHeight / 16}rem`,
+    '--zux-nav-item-vertical-width': '6.5625rem', // 105px
+    '--zux-nav-item-vertical-height': '4rem', // 64px
+    '--zux-nav-item-vertical-padding-x': spacing.small, // 0.5rem
+    '--zux-nav-item-vertical-padding-y': '0',
+    '--zux-nav-item-vertical-icon-size': '2rem', // 32px
+    '--zux-nav-item-vertical-icon-radius': radii.full,
+    '--zux-nav-item-vertical-icon-inner-size': '1.5rem', // 24px
+    '--zux-nav-item-vertical-gap': spacing.extraSmall, // 0.25rem
+    '--zux-nav-item-vertical-font-family': typography.rowLabelSmall.family,
+    '--zux-nav-item-vertical-font-size': `${typography.rowLabelSmall.size / 16}rem`,
+    '--zux-nav-item-vertical-font-weight': typography.rowLabelSmall.weight,
+    '--zux-nav-item-vertical-line-height': `${typography.rowLabelSmall.lineHeight / 16}rem`,
   };
 });
 
@@ -195,68 +190,73 @@ const frameBackground = computed(() => {
 const itemStyleWithColors = computed(() => {
   return {
     ...itemStyle.value,
-    '--zux-bottom-nav-item-icon-color': iconColor.value,
-    '--zux-bottom-nav-item-text-color': textColor.value,
-    '--zux-bottom-nav-item-frame-bg': frameBackground.value,
+    '--zux-nav-item-vertical-icon-color': iconColor.value,
+    '--zux-nav-item-vertical-text-color': textColor.value,
+    '--zux-nav-item-vertical-frame-bg': frameBackground.value,
   };
 });
 </script>
 
 <style scoped>
-.zux-bottom-nav-item {
-  width: var(--zux-bottom-nav-item-width);
-  height: var(--zux-bottom-nav-item-height);
-  padding-left: var(--zux-bottom-nav-item-padding-x);
-  padding-right: var(--zux-bottom-nav-item-padding-x);
-  display: inline-flex;
-  justify-content: space-between;
+.zux-nav-item-vertical {
+  width: var(--zux-nav-item-vertical-width);
+  height: var(--zux-nav-item-vertical-height);
+  padding-left: var(--zux-nav-item-vertical-padding-x);
+  padding-right: var(--zux-nav-item-vertical-padding-x);
+  padding-top: var(--zux-nav-item-vertical-padding-y);
+  padding-bottom: var(--zux-nav-item-vertical-padding-y);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: var(--zux-nav-item-vertical-gap);
   cursor: pointer;
 }
 
-.zux-bottom-nav-item__frame {
-  height: var(--zux-bottom-nav-item-icon-size);
-  padding-left: var(--zux-bottom-nav-item-frame-padding-left);
-  padding-right: var(--zux-bottom-nav-item-frame-padding-right);
-  border-radius: var(--zux-bottom-nav-item-icon-radius);
-  background: var(--zux-bottom-nav-item-frame-bg);
+.zux-nav-item-vertical__frame {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--zux-nav-item-vertical-icon-radius);
+  background: var(--zux-nav-item-vertical-frame-bg);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--zux-bottom-nav-item-gap);
+  gap: var(--zux-nav-item-vertical-gap);
   transition: background-color 0.15s ease;
 }
 
-.zux-bottom-nav-item__icon-container {
-  width: var(--zux-bottom-nav-item-icon-size);
-  height: var(--zux-bottom-nav-item-icon-size);
+.zux-nav-item-vertical__icon-container {
+  width: var(--zux-nav-item-vertical-icon-size);
+  height: var(--zux-nav-item-vertical-icon-size);
   overflow: hidden;
-  border-radius: var(--zux-bottom-nav-item-icon-radius);
+  border-radius: var(--zux-nav-item-vertical-icon-radius);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.zux-bottom-nav-item__icon {
-  width: var(--zux-bottom-nav-item-icon-inner-size);
-  height: var(--zux-bottom-nav-item-icon-inner-size);
+.zux-nav-item-vertical__icon {
+  width: var(--zux-nav-item-vertical-icon-inner-size);
+  height: var(--zux-nav-item-vertical-icon-inner-size);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.zux-bottom-nav-item__icon-shape {
-  width: var(--zux-bottom-nav-item-icon-inner-size);
-  height: var(--zux-bottom-nav-item-icon-inner-size);
+.zux-nav-item-vertical__icon-shape {
+  width: var(--zux-nav-item-vertical-icon-inner-size);
+  height: var(--zux-nav-item-vertical-icon-inner-size);
 }
 
-.zux-bottom-nav-item__label {
-  color: var(--zux-bottom-nav-item-text-color);
-  font-family: var(--zux-bottom-nav-item-font-family);
-  font-size: var(--zux-bottom-nav-item-font-size);
-  font-weight: var(--zux-bottom-nav-item-font-weight);
-  line-height: var(--zux-bottom-nav-item-line-height);
+.zux-nav-item-vertical__label {
+  color: var(--zux-nav-item-vertical-text-color);
+  font-family: var(--zux-nav-item-vertical-font-family);
+  font-size: var(--zux-nav-item-vertical-font-size);
+  font-weight: var(--zux-nav-item-vertical-font-weight);
+  line-height: var(--zux-nav-item-vertical-line-height);
   word-wrap: break-word;
 }
 </style>
+

@@ -1,9 +1,9 @@
 <template>
   <div
     :class="[
-      'zux-left-nav-item',
-      `zux-left-nav-item--${effectiveVariant}`,
-      `zux-left-nav-item--theme-${theme}`,
+      'zux-nav-item-horizontal',
+      `zux-nav-item-horizontal--${effectiveVariant}`,
+      `zux-nav-item-horizontal--theme-${theme}`,
     ]"
     :style="itemStyleWithColors"
     @mouseenter="handleMouseEnter"
@@ -11,11 +11,11 @@
     @mousedown="handleMouseDown"
     @mouseup="handleMouseUp"
   >
-    <div class="zux-left-nav-item__frame">
-      <div class="zux-left-nav-item__icon-container">
-        <div class="zux-left-nav-item__icon">
+    <div class="zux-nav-item-horizontal__frame">
+      <div class="zux-nav-item-horizontal__icon-container">
+        <div class="zux-nav-item-horizontal__icon">
           <svg
-            class="zux-left-nav-item__icon-shape"
+            class="zux-nav-item-horizontal__icon-shape"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -28,7 +28,7 @@
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M2.40039 5.20001L6.40039 2.20001L7.60039 3.80001L3.60039 6.80001L2.40039 5.20001ZM19.0004 13C19.0004 16.866 15.8664 20 12.0004 20C8.1344 20 5.00039 16.866 5.00039 13C5.00039 9.13402 8.1344 6.00001 12.0004 6.00001C15.8664 6.00001 19.0004 9.13402 19.0004 13ZM21.0004 13C21.0004 17.9706 16.971 22 12.0004 22C7.02983 22 3.00039 17.9706 3.00039 13C3.00039 8.02945 7.02983 4.00001 12.0004 4.00001C16.971 4.00001 21.0004 8.02945 21.0004 13ZM11.0004 8.00001V12.9998C11.0004 13.2749 11.1114 13.5242 11.2912 13.705L11.0004 12.9998L11.2937 13.7075L14.2933 16.7071L15.7075 15.2929L13.0004 12.5858V8.00001H11.0004ZM17.6004 2.20001L21.6004 5.20001L20.4004 6.80001L16.4004 3.80001L17.6004 2.20001Z"
-              fill="var(--zux-left-nav-item-icon-color)"
+              fill="var(--zux-nav-item-horizontal-icon-color)"
             />
             <!-- Alarm_active.svg for selected states -->
             <path
@@ -36,12 +36,12 @@
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M2.40039 5.19995L6.40039 2.19995L7.60039 3.79995L3.60039 6.79995L2.40039 5.19995ZM12.0004 22C16.971 22 21.0004 17.9705 21.0004 13C21.0004 8.02939 16.971 3.99995 12.0004 3.99995C7.02983 3.99995 3.00039 8.02939 3.00039 13C3.00039 17.9705 7.02983 22 12.0004 22ZM11.0004 7.99995V12.9998C11.0004 13.2748 11.1114 13.5241 11.2912 13.7049L11.0004 12.9998L11.2937 13.7075L14.2933 16.7071L15.7075 15.2928L13.0004 12.5857V7.99995H11.0004ZM17.6004 2.19995L21.6004 5.19995L20.4004 6.79995L16.4004 3.79995L17.6004 2.19995Z"
-              fill="var(--zux-left-nav-item-icon-color)"
+              fill="var(--zux-nav-item-horizontal-icon-color)"
             />
           </svg>
         </div>
       </div>
-      <span class="zux-left-nav-item__label">{{ label }}</span>
+      <span class="zux-nav-item-horizontal__label">{{ label }}</span>
     </div>
   </div>
 </template>
@@ -53,13 +53,13 @@ import { radii } from '../../tokens/radii';
 import { spacing } from '../../tokens/spacing';
 import { typography } from '../../tokens/typography';
 
-export interface LeftNavItemProps {
+export interface NavItemHorizontalProps {
   label?: string;
   variant?: 'unselected' | 'unselected-hovered' | 'unselected-pressed' | 'selected' | 'selected-hovered' | 'selected-pressed';
   theme?: 'light' | 'dark';
 }
 
-const props = withDefaults(defineProps<LeftNavItemProps>(), {
+const props = withDefaults(defineProps<NavItemHorizontalProps>(), {
   label: 'Label',
   variant: 'unselected',
   theme: 'light',
@@ -87,7 +87,7 @@ const effectiveVariant = computed(() => {
     return 'unselected';
   }
   
-  // For 'selected' variant, apply interactive states
+  // For 'selected' variant, apply interactive states (will be implemented later)
   if (props.variant === 'selected') {
     if (isPressed.value) {
       return 'selected-pressed';
@@ -126,18 +126,23 @@ const handleMouseUp = () => {
 const themeColors = computed(() => colors[props.theme]);
 const itemStyle = computed(() => {
   return {
-    '--zux-left-nav-item-width': '6.5625rem', // 105px
-    '--zux-left-nav-item-height': '4rem', // 64px
-    '--zux-left-nav-item-padding-x': spacing.small, // 0.5rem
-    '--zux-left-nav-item-padding-y': '0',
-    '--zux-left-nav-item-icon-size': '32px',
-    '--zux-left-nav-item-icon-radius': radii.full,
-    '--zux-left-nav-item-icon-inner-size': '24px',
-    '--zux-left-nav-item-gap': spacing.extraSmall, // 0.25rem
-    '--zux-left-nav-item-font-family': typography.rowLabelSmall.family,
-    '--zux-left-nav-item-font-size': `${typography.rowLabelSmall.size / 16}rem`,
-    '--zux-left-nav-item-font-weight': typography.rowLabelSmall.weight,
-    '--zux-left-nav-item-line-height': `${typography.rowLabelSmall.lineHeight / 16}rem`,
+    '--zux-nav-item-horizontal-width': '7.5rem', // 120px
+    '--zux-nav-item-horizontal-height': '4rem', // 64px
+    '--zux-nav-item-horizontal-padding-x': spacing.small, // 8px
+    '--zux-nav-item-horizontal-icon-size': '2rem', // 32px
+    '--zux-nav-item-horizontal-icon-radius': radii.full,
+    '--zux-nav-item-horizontal-icon-inner-size': '1.5rem', // 24px
+    '--zux-nav-item-horizontal-icon-shape-width': '1.2rem', // 19.2px
+    '--zux-nav-item-horizontal-icon-shape-height': '1.2375rem', // 19.8px
+    '--zux-nav-item-horizontal-icon-shape-x': '0.15rem', // 2.4px
+    '--zux-nav-item-horizontal-icon-shape-y': '0.1375rem', // 2.2px
+    '--zux-nav-item-horizontal-gap': '0.3125rem', // 5px
+    '--zux-nav-item-horizontal-frame-padding-left': '0.25rem', // 4px
+    '--zux-nav-item-horizontal-frame-padding-right': '0.75rem', // 12px
+    '--zux-nav-item-horizontal-font-family': typography.rowLabelSmall.family,
+    '--zux-nav-item-horizontal-font-size': `${typography.rowLabelSmall.size / 16}rem`,
+    '--zux-nav-item-horizontal-font-weight': typography.rowLabelSmall.weight,
+    '--zux-nav-item-horizontal-line-height': `${typography.rowLabelSmall.lineHeight / 16}rem`,
   };
 });
 
@@ -190,72 +195,69 @@ const frameBackground = computed(() => {
 const itemStyleWithColors = computed(() => {
   return {
     ...itemStyle.value,
-    '--zux-left-nav-item-icon-color': iconColor.value,
-    '--zux-left-nav-item-text-color': textColor.value,
-    '--zux-left-nav-item-frame-bg': frameBackground.value,
+    '--zux-nav-item-horizontal-icon-color': iconColor.value,
+    '--zux-nav-item-horizontal-text-color': textColor.value,
+    '--zux-nav-item-horizontal-frame-bg': frameBackground.value,
   };
 });
 </script>
 
 <style scoped>
-.zux-left-nav-item {
-  width: var(--zux-left-nav-item-width);
-  height: var(--zux-left-nav-item-height);
-  padding-left: var(--zux-left-nav-item-padding-x);
-  padding-right: var(--zux-left-nav-item-padding-x);
-  padding-top: var(--zux-left-nav-item-padding-y);
-  padding-bottom: var(--zux-left-nav-item-padding-y);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.zux-nav-item-horizontal {
+  width: var(--zux-nav-item-horizontal-width);
+  height: var(--zux-nav-item-horizontal-height);
+  padding-left: var(--zux-nav-item-horizontal-padding-x);
+  padding-right: var(--zux-nav-item-horizontal-padding-x);
+  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  gap: var(--zux-left-nav-item-gap);
   cursor: pointer;
 }
 
-.zux-left-nav-item__frame {
-  width: 100%;
-  height: 100%;
-  border-radius: var(--zux-left-nav-item-icon-radius);
-  background: var(--zux-left-nav-item-frame-bg);
+.zux-nav-item-horizontal__frame {
+  height: var(--zux-nav-item-horizontal-icon-size);
+  padding-left: var(--zux-nav-item-horizontal-frame-padding-left);
+  padding-right: var(--zux-nav-item-horizontal-frame-padding-right);
+  border-radius: var(--zux-nav-item-horizontal-icon-radius);
+  background: var(--zux-nav-item-horizontal-frame-bg);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--zux-left-nav-item-gap);
+  gap: var(--zux-nav-item-horizontal-gap);
   transition: background-color 0.15s ease;
 }
 
-.zux-left-nav-item__icon-container {
-  width: var(--zux-left-nav-item-icon-size);
-  height: var(--zux-left-nav-item-icon-size);
+.zux-nav-item-horizontal__icon-container {
+  width: var(--zux-nav-item-horizontal-icon-size);
+  height: var(--zux-nav-item-horizontal-icon-size);
   overflow: hidden;
-  border-radius: var(--zux-left-nav-item-icon-radius);
+  border-radius: var(--zux-nav-item-horizontal-icon-radius);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.zux-left-nav-item__icon {
-  width: var(--zux-left-nav-item-icon-inner-size);
-  height: var(--zux-left-nav-item-icon-inner-size);
+.zux-nav-item-horizontal__icon {
+  width: var(--zux-nav-item-horizontal-icon-inner-size);
+  height: var(--zux-nav-item-horizontal-icon-inner-size);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.zux-left-nav-item__icon-shape {
-  width: var(--zux-left-nav-item-icon-inner-size);
-  height: var(--zux-left-nav-item-icon-inner-size);
+.zux-nav-item-horizontal__icon-shape {
+  width: var(--zux-nav-item-horizontal-icon-inner-size);
+  height: var(--zux-nav-item-horizontal-icon-inner-size);
 }
 
-.zux-left-nav-item__label {
-  color: var(--zux-left-nav-item-text-color);
-  font-family: var(--zux-left-nav-item-font-family);
-  font-size: var(--zux-left-nav-item-font-size);
-  font-weight: var(--zux-left-nav-item-font-weight);
-  line-height: var(--zux-left-nav-item-line-height);
+.zux-nav-item-horizontal__label {
+  color: var(--zux-nav-item-horizontal-text-color);
+  font-family: var(--zux-nav-item-horizontal-font-family);
+  font-size: var(--zux-nav-item-horizontal-font-size);
+  font-weight: var(--zux-nav-item-horizontal-font-weight);
+  line-height: var(--zux-nav-item-horizontal-line-height);
   word-wrap: break-word;
 }
 </style>
+

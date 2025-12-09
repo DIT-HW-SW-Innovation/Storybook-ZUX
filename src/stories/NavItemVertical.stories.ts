@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import BottomNavItem from '../components/ui/BottomNavItem.vue';
+import NavItemVertical from '../components/ui/NavItemVertical.vue';
 import StoryWrapper from './StoryWrapper.vue';
 
 const meta = {
-  title: 'Components/BottomNavItem',
-  component: BottomNavItem,
+  title: 'Components/NavItemVertical',
+  component: NavItemVertical,
   render: (args: any) => ({
-    components: { BottomNavItem, StoryWrapper },
+    components: { NavItemVertical, StoryWrapper },
     setup() {
       return { args };
     },
     template: `
       <StoryWrapper :dark-mode="args.theme === 'dark'">
-        <bottom-nav-item v-bind="args" />
+        <nav-item-vertical v-bind="args" />
       </StoryWrapper>
     `,
   }),
@@ -21,7 +21,7 @@ const meta = {
     variant: {
       control: { type: 'select' },
       options: ['unselected', 'unselected-hovered', 'unselected-pressed', 'selected', 'selected-hovered', 'selected-pressed'],
-      description: 'Bottom navigation item variant',
+      description: 'Vertical navigation item variant',
     },
     theme: {
       control: { type: 'select' },
@@ -39,7 +39,7 @@ const meta = {
       controls: { exclude: [] },
     },
   },
-} satisfies Meta<typeof BottomNavItem>;
+} satisfies Meta<typeof NavItemVertical>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -48,6 +48,22 @@ type Story = StoryObj<typeof meta>;
 export const Unselected: Story = {
   args: {
     variant: 'unselected',
+    theme: 'light',
+    label: 'Label',
+  },
+};
+
+export const UnselectedHovered: Story = {
+  args: {
+    variant: 'unselected-hovered',
+    theme: 'light',
+    label: 'Label',
+  },
+};
+
+export const UnselectedPressed: Story = {
+  args: {
+    variant: 'unselected-pressed',
     theme: 'light',
     label: 'Label',
   },
@@ -99,3 +115,4 @@ export const SelectedDark: Story = {
     darkMode: true,
   },
 };
+

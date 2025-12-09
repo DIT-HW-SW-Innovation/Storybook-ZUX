@@ -217,8 +217,8 @@ const handleMouseLeave = (item: string, event: MouseEvent) => {
 }
 
 .zux-alphabetical-index__item:focus {
-  outline: 2px solid var(--zux-index-focus-ring, rgba(35, 113, 238, 0.5));
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--zux-index-focus-ring, rgba(35, 113, 238, 0.5)); /* 2px */
+  outline-offset: 0.125rem; /* 2px */
 }
 
 .zux-alphabetical-index__star-icon {

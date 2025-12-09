@@ -441,7 +441,7 @@ const buttonStyle = computed(() => {
 
 /* Secondary - Outlined button with border */
 .zux-button--secondary {
-  border: 1px solid var(--zux-btn-border, transparent);
+  border: 0.0625rem solid var(--zux-btn-border, transparent); /* 1px */
 }
 
 /* Small buttons - Typography settings and border */
@@ -457,7 +457,7 @@ const buttonStyle = computed(() => {
 /* Secondary-small-* variants - Outlined button with border */
 .zux-button--secondary-small-1,
 .zux-button--secondary-small-3 {
-  border: 1px solid var(--zux-btn-border, transparent);
+  border: 0.0625rem solid var(--zux-btn-border, transparent); /* 1px */
 }
 
 /* Secondary-small-2 has no border */

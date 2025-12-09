@@ -45,6 +45,8 @@ Create or extend the appropriate file in `src/tokens/` **before** using it in a 
 
 This is a **strict rule**.
 
+### ✔ Use rem instead of px. Never use px values
+
 ---
 
 # # 2. Component Architecture Rules
@@ -263,14 +265,14 @@ AI should NEVER:
 
 # # 9. Summary of Required Behavior
 
-| Area       | Required Rule                                 |
-| ---------- | --------------------------------------------- |
-| Tokens     | All visual values come from `/src/tokens/`    |
-| Components | Use tokens; no raw values                     |
-| Stories    | No visual logic; use StoryWrapper when needed |
-| Storybook  | Match global layout behavior                  |
-| MCP        | Map to tokens, not components                 |
-| AI         | Follow golden examples and rules strictly     |
+| Area       | Required Rule                                    |
+| ---------- | -------------------------------------------------|
+| Tokens     | All visual values come from `/src/tokens/`       |
+| Components | Use tokens; no raw values; use rem; no px values |
+| Stories    | No visual logic; use StoryWrapper when needed    |
+| Storybook  | Match global layout behavior                     |
+| MCP        | Map to tokens, not components                    |
+| AI         | Follow golden examples and rules strictly        |
 
 ---
 

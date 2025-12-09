@@ -79,9 +79,9 @@ const themeColors = computed(() => colors[props.theme]);
 // Container styles
 const containerStyle = computed(() => {
   return {
-    '--zux-floating-button-padding': '9px',
-    '--zux-floating-button-width': '92px',
-    '--zux-floating-button-height': '92px',
+    '--zux-floating-button-padding': '0.5625rem', // 9px
+    '--zux-floating-button-width': '5.75rem', // 92px
+    '--zux-floating-button-height': '5.75rem', // 92px
   };
 });
 
@@ -115,7 +115,7 @@ const circleStyle = computed(() => {
   return {
     backgroundColor: backgroundColor,
     '--zux-floating-button-bg': backgroundColor,
-    '--zux-floating-button-size': '74px',
+    '--zux-floating-button-size': '4.625rem', // 74px
     '--zux-floating-button-radius': radii.full,
     '--zux-floating-button-transition': `background ${motion.duration.fast} ${motion.easing.standard}`,
     '--zux-floating-button-disabled-opacity': props.enabled ? '1' : states.disabled.opacity,
@@ -164,21 +164,21 @@ const handleMouseUp = () => {
 <style scoped>
 .zux-floating-button {
   display: inline-flex;
-  padding: var(--zux-floating-button-padding, 9px);
+  padding: var(--zux-floating-button-padding, 0.5625rem);
   align-items: center;
   justify-content: center;
-  width: var(--zux-floating-button-width, 92px);
-  height: var(--zux-floating-button-height, 92px);
+  width: var(--zux-floating-button-width, 5.75rem);
+  height: var(--zux-floating-button-height, 5.75rem);
 }
 
 .zux-floating-button__circle {
   display: flex;
-  width: var(--zux-floating-button-size, 74px);
-  height: var(--zux-floating-button-size, 74px);
+  width: var(--zux-floating-button-size, 4.625rem);
+  height: var(--zux-floating-button-size, 4.625rem);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem; /* 5px */
   border-radius: var(--zux-floating-button-radius);
   position: relative;
   cursor: var(--zux-floating-button-disabled-cursor, pointer);
@@ -195,8 +195,8 @@ const handleMouseUp = () => {
 }
 
 .zux-floating-button__icon {
-  width: 32px;
-  height: 32px;
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
   flex-shrink: 0;
   position: relative;
   display: flex;
@@ -205,8 +205,8 @@ const handleMouseUp = () => {
 }
 
 .zux-floating-button__icon-shape {
-  width: 32px;
-  height: 32px;
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
   flex-shrink: 0;
   fill: white;
 }

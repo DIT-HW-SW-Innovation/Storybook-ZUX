@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import LeftNavItem from '../components/ui/LeftNavItem.vue';
+import NavItemHorizontal from '../components/ui/NavItemHorizontal.vue';
 import StoryWrapper from './StoryWrapper.vue';
 
 const meta = {
-  title: 'Components/LeftNavItem',
-  component: LeftNavItem,
+  title: 'Components/NavItemHorizontal',
+  component: NavItemHorizontal,
   render: (args: any) => ({
-    components: { LeftNavItem, StoryWrapper },
+    components: { NavItemHorizontal, StoryWrapper },
     setup() {
       return { args };
     },
     template: `
       <StoryWrapper :dark-mode="args.theme === 'dark'">
-        <left-nav-item v-bind="args" />
+        <nav-item-horizontal v-bind="args" />
       </StoryWrapper>
     `,
   }),
@@ -21,7 +21,7 @@ const meta = {
     variant: {
       control: { type: 'select' },
       options: ['unselected', 'unselected-hovered', 'unselected-pressed', 'selected', 'selected-hovered', 'selected-pressed'],
-      description: 'Left navigation item variant',
+      description: 'Horizontal navigation item variant',
     },
     theme: {
       control: { type: 'select' },
@@ -39,7 +39,7 @@ const meta = {
       controls: { exclude: [] },
     },
   },
-} satisfies Meta<typeof LeftNavItem>;
+} satisfies Meta<typeof NavItemHorizontal>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -48,22 +48,6 @@ type Story = StoryObj<typeof meta>;
 export const Unselected: Story = {
   args: {
     variant: 'unselected',
-    theme: 'light',
-    label: 'Label',
-  },
-};
-
-export const UnselectedHovered: Story = {
-  args: {
-    variant: 'unselected-hovered',
-    theme: 'light',
-    label: 'Label',
-  },
-};
-
-export const UnselectedPressed: Story = {
-  args: {
-    variant: 'unselected-pressed',
     theme: 'light',
     label: 'Label',
   },
@@ -115,3 +99,4 @@ export const SelectedDark: Story = {
     darkMode: true,
   },
 };
+
