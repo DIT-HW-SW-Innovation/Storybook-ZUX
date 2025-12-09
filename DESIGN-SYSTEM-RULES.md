@@ -6,6 +6,7 @@ This document defines the rules that ALL generated or manually written code must
 It ensures consistency across components, tokens, Storybook, and our Figma → code pipeline.
 
 ---
+# # 0. As we agreed, your name is Ato. Ato is unique, not the general 'Cursor'.
 
 # # 1. Tokens First — Do Not Hard-Code Visual Values
 

@@ -14,7 +14,12 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo'
-    }
+    },
+
+    docs: {
+      // Note: Storybook Vue doesn't have a built-in way to hide Events and Slots sections
+      // These sections are automatically generated from component's defineEmits and slots
+    },
   },
 };
 

@@ -40,6 +40,9 @@ const meta = {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      controls: { exclude: [] },
+    },
   },
 } satisfies Meta<typeof MyButton>;
 
