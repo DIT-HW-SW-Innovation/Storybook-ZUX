@@ -161,7 +161,7 @@ export const SecondaryEnabledLight: Story = {
     variant: 'secondary',
     status: 'enabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -170,7 +170,7 @@ export const SecondaryHoveredLight: Story = {
     variant: 'secondary',
     status: 'hovered',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -179,7 +179,7 @@ export const SecondaryFocusedLight: Story = {
     variant: 'secondary',
     status: 'focused',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -188,7 +188,7 @@ export const SecondaryPressedLight: Story = {
     variant: 'secondary',
     status: 'pressed',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -197,7 +197,7 @@ export const SecondaryDisabledLight: Story = {
     variant: 'secondary',
     status: 'disabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -207,7 +207,7 @@ export const SecondaryEnabledDark: Story = {
     variant: 'secondary',
     status: 'enabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -219,7 +219,7 @@ export const SecondaryHoveredDark: Story = {
     variant: 'secondary',
     status: 'hovered',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -231,7 +231,7 @@ export const SecondaryFocusedDark: Story = {
     variant: 'secondary',
     status: 'focused',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -243,7 +243,7 @@ export const SecondaryPressedDark: Story = {
     variant: 'secondary',
     status: 'pressed',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -255,7 +255,7 @@ export const SecondaryDisabledDark: Story = {
     variant: 'secondary',
     status: 'disabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -268,7 +268,7 @@ export const PrimarySmallEnabledLight: Story = {
     variant: 'primary-small',
     status: 'enabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -277,7 +277,7 @@ export const PrimarySmallHoveredLight: Story = {
     variant: 'primary-small',
     status: 'hovered',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -286,7 +286,7 @@ export const PrimarySmallFocusedLight: Story = {
     variant: 'primary-small',
     status: 'focused',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -295,7 +295,7 @@ export const PrimarySmallPressedLight: Story = {
     variant: 'primary-small',
     status: 'pressed',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -304,7 +304,7 @@ export const PrimarySmallDisabledLight: Story = {
     variant: 'primary-small',
     status: 'disabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -314,7 +314,7 @@ export const PrimarySmallEnabledDark: Story = {
     variant: 'primary-small',
     status: 'enabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -326,7 +326,7 @@ export const PrimarySmallHoveredDark: Story = {
     variant: 'primary-small',
     status: 'hovered',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -338,7 +338,7 @@ export const PrimarySmallFocusedDark: Story = {
     variant: 'primary-small',
     status: 'focused',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -350,7 +350,7 @@ export const PrimarySmallPressedDark: Story = {
     variant: 'primary-small',
     status: 'pressed',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -362,7 +362,7 @@ export const PrimarySmallDisabledDark: Story = {
     variant: 'primary-small',
     status: 'disabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -375,7 +375,7 @@ export const SecondarySmall1EnabledLight: Story = {
     variant: 'secondary-small-1',
     status: 'enabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -384,7 +384,7 @@ export const SecondarySmall1HoveredLight: Story = {
     variant: 'secondary-small-1',
     status: 'hovered',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -393,7 +393,7 @@ export const SecondarySmall1FocusedLight: Story = {
     variant: 'secondary-small-1',
     status: 'focused',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -402,7 +402,7 @@ export const SecondarySmall1PressedLight: Story = {
     variant: 'secondary-small-1',
     status: 'pressed',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -411,7 +411,7 @@ export const SecondarySmall1DisabledLight: Story = {
     variant: 'secondary-small-1',
     status: 'disabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -421,7 +421,7 @@ export const SecondarySmall1EnabledDark: Story = {
     variant: 'secondary-small-1',
     status: 'enabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -433,7 +433,7 @@ export const SecondarySmall1HoveredDark: Story = {
     variant: 'secondary-small-1',
     status: 'hovered',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -445,7 +445,7 @@ export const SecondarySmall1FocusedDark: Story = {
     variant: 'secondary-small-1',
     status: 'focused',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -457,7 +457,7 @@ export const SecondarySmall1PressedDark: Story = {
     variant: 'secondary-small-1',
     status: 'pressed',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -469,7 +469,7 @@ export const SecondarySmall1DisabledDark: Story = {
     variant: 'secondary-small-1',
     status: 'disabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -482,7 +482,7 @@ export const SecondarySmall2EnabledLight: Story = {
     variant: 'secondary-small-2',
     status: 'enabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -491,7 +491,7 @@ export const SecondarySmall2HoveredLight: Story = {
     variant: 'secondary-small-2',
     status: 'hovered',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -500,7 +500,7 @@ export const SecondarySmall2FocusedLight: Story = {
     variant: 'secondary-small-2',
     status: 'focused',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -509,7 +509,7 @@ export const SecondarySmall2PressedLight: Story = {
     variant: 'secondary-small-2',
     status: 'pressed',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -518,7 +518,7 @@ export const SecondarySmall2DisabledLight: Story = {
     variant: 'secondary-small-2',
     status: 'disabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -528,7 +528,7 @@ export const SecondarySmall2EnabledDark: Story = {
     variant: 'secondary-small-2',
     status: 'enabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -540,7 +540,7 @@ export const SecondarySmall2HoveredDark: Story = {
     variant: 'secondary-small-2',
     status: 'hovered',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -552,7 +552,7 @@ export const SecondarySmall2FocusedDark: Story = {
     variant: 'secondary-small-2',
     status: 'focused',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -564,7 +564,7 @@ export const SecondarySmall2PressedDark: Story = {
     variant: 'secondary-small-2',
     status: 'pressed',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -576,7 +576,7 @@ export const SecondarySmall2DisabledDark: Story = {
     variant: 'secondary-small-2',
     status: 'disabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -589,7 +589,7 @@ export const SecondarySmall3EnabledLight: Story = {
     variant: 'secondary-small-3',
     status: 'enabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -598,7 +598,7 @@ export const SecondarySmall3HoveredLight: Story = {
     variant: 'secondary-small-3',
     status: 'hovered',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -607,7 +607,7 @@ export const SecondarySmall3FocusedLight: Story = {
     variant: 'secondary-small-3',
     status: 'focused',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -616,7 +616,7 @@ export const SecondarySmall3PressedLight: Story = {
     variant: 'secondary-small-3',
     status: 'pressed',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -625,7 +625,7 @@ export const SecondarySmall3DisabledLight: Story = {
     variant: 'secondary-small-3',
     status: 'disabled',
     theme: 'light',
-    label: 'Label',
+    label: 'Button',
   },
 };
 
@@ -635,7 +635,7 @@ export const SecondarySmall3EnabledDark: Story = {
     variant: 'secondary-small-3',
     status: 'enabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -647,7 +647,7 @@ export const SecondarySmall3HoveredDark: Story = {
     variant: 'secondary-small-3',
     status: 'hovered',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -659,7 +659,7 @@ export const SecondarySmall3FocusedDark: Story = {
     variant: 'secondary-small-3',
     status: 'focused',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -671,7 +671,7 @@ export const SecondarySmall3PressedDark: Story = {
     variant: 'secondary-small-3',
     status: 'pressed',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,
@@ -683,7 +683,7 @@ export const SecondarySmall3DisabledDark: Story = {
     variant: 'secondary-small-3',
     status: 'disabled',
     theme: 'dark',
-    label: 'Label',
+    label: 'Button',
   },
   parameters: {
     darkMode: true,

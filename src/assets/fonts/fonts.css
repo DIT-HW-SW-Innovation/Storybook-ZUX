@@ -1,0 +1,31 @@
+/* 
+ * Rookery New Font Face Declarations
+ * 
+ * To use these fonts, you need to add the font files to this directory:
+ * - RookeryNew-Regular.woff2 (or .woff, .ttf, .otf)
+ * - RookeryNew-Bold.woff2 (or .woff, .ttf, .otf)
+ * 
+ * Recommended format: WOFF2 for best browser support and file size
+ */
+
+@font-face {
+  font-family: 'Rookery New';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./RookeryNew-Regular.woff2') format('woff2'),
+       url('./RookeryNew-Regular.woff') format('woff'),
+       url('./RookeryNew-Regular.ttf') format('truetype'),
+       url('./RookeryNew-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Rookery New';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./RookeryNew-Bold.woff2') format('woff2'),
+       url('./RookeryNew-Bold.woff') format('woff'),
+       url('./RookeryNew-Bold.ttf') format('truetype'),
+       url('./RookeryNew-Bold.otf') format('opentype');
+}
