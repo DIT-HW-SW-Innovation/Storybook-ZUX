@@ -25,3 +25,6 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+STORYWRAPPER_USAGE.md
+DESIGN-SYSTEM-RULES.md
